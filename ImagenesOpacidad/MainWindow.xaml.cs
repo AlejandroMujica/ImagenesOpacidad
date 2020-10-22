@@ -1,6 +1,6 @@
 ﻿
 using System.Windows;
-
+using System.Windows.Controls;
 using System.Windows.Input;
 
 
@@ -11,6 +11,7 @@ namespace ImagenesOpacidad
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Image imagen;
         public MainWindow()
         {
             InitializeComponent();
@@ -18,25 +19,14 @@ namespace ImagenesOpacidad
 
         private void episodioImage_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (episodioivImage.IsMouseOver)
-            {
-                episodioivImage.Opacity = 1;
-            }
-            else if (episodiovImage.IsMouseOver)
-            {
-                episodiovImage.Opacity = 1;
-            }
-            else
-            {
-                episodioviImage.Opacity = 1;
-            }
+            imagen = sender as Image;
+            imagen.Opacity = 1;
         }
 
         private void episodioImage_MouseLeave(object sender, MouseEventArgs e)
         {
-            episodioivImage.Opacity = 0.5;
-            episodiovImage.Opacity = 0.5;
-            episodioviImage.Opacity = 0.5;
+            imagen = sender as Image;
+            imagen.Opacity = 0.5;
         }
     }
 }
